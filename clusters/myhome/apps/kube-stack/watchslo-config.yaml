@@ -1,0 +1,36 @@
+apiVersion: slo.kube-stack.me/v1beta1
+kind: WatchSLO
+metadata:
+  labels:
+    app.kubernetes.io/name: watchslo
+    app.kubernetes.io/instance: watchslo-sample
+    app.kubernetes.io/part-of: kube-stack
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kube-stack
+  name: watchslo-config
+spec:
+  configs:
+  - selector:
+      apiVersion: v1
+      kind: Pod
+    targetResource: |
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: kube-stack-target-pod
+        namespace: kube-system
+        labels:
+          app: ubuntu
+      spec:
+        containers:
+        - name: main
+          image: docker.m.daocloud.io/library/ubuntu:22.04
+          command:
+          - sleep
+          - infinity
+  - selector:
+      apiVersion: v1
+      kind: Service
+  - selector:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
