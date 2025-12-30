@@ -1,0 +1,10 @@
+kind: GitRepository
+metadata:
+  name: cluster-configs-repo
+  namespace: flux
+spec:
+  interval: 1m
+  ref:
+    branch: main
+  timeout: 60s
+  url: https://github.com/weiyuanke/cluster-configs.git
