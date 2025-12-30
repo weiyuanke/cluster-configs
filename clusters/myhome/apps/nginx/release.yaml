@@ -17,3 +17,5 @@ spec:
       interval: 10m
   values:
     replicaCount: 1
+    global:
+      imageRegistry: docker.m.daocloud.io
