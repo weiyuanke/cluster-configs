@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: kube-stack-charts
+  namespace: flux
+spec:
+  url: https://github.com/weiyuanke/kube-stack.git
+  ref:
+    branch: master
+  interval: 5m
