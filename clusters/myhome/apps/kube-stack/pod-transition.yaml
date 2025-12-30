@@ -1,0 +1,70 @@
+apiVersion: slo.kube-stack.me/v1beta1
+kind: ResourceStateTransition
+metadata:
+  name: pod-transition
+spec:
+  selector:
+    apiVersion: v1
+    kind: Pod
+  events:
+  - name: Created
+    requirements:
+    - key: "metadata.creationTimestamp"
+      operator: "notin"
+      strValues:
+      - ""
+  - name: Scheduled
+    requirements:
+    - key: "spec.nodeName"
+      operator: "notin"
+      strValues:
+      - ""
+  - name: Unschedulable
+    requirements:
+    - key: "status.conditions.#(type==PodScheduled).reason"
+      operator: "in"
+      strValues:
+      - "Unschedulable"
+  - name: IPAllocated
+    requirements:
+    - key: "status.podIP"
+      operator: "notin"
+      strValues:
+      - ""
+  - name: Ready
+    requirements:
+    - key: "status.conditions.#(type==Ready).status"
+      operator: "in"
+      strValues:
+      - "True"
+  - name: Delete
+    requirements:
+    - key: "metadata.deletionTimestamp"
+      operator: "notin"
+      strValues:
+      - ""
+  transitions:
+  - source:
+    - BeginState
+    event: Created
+    target: CreatedState
+  - source:
+    - CreatedState
+    event: Scheduled
+    target: ScheduledState
+  - source:
+    - CreatedState
+    event: Unschedulable
+    target: UnschedulableState
+  - source:
+    - ScheduledState
+    event: IPAllocated
+    target: IPAllocatedState
+  - source:
+    - IPAllocatedState
+    event: Ready
+    target: ReadyState
+  - source:
+    - "*"
+    event: Delete
+    target: DeleteState
