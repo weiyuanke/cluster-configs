@@ -1,0 +1,40 @@
+apiVersion: slo.kube-stack.me/v1beta1
+kind: ResourceStateTransition
+metadata:
+  name: pod-create-slo
+spec:
+  selector:
+    apiVersion: v1
+    kind: Pod
+  timer:
+    eventName: timerEvent100s
+    timerInSeconds: 600
+  events:
+  - name: Created
+    requirements:
+    - key: "metadata.creationTimestamp"
+      operator: "notin"
+      strValues:
+      - ""
+  - name: Ready
+    requirements:
+    - key: "status.conditions.#(type==Ready).status"
+      operator: "in"
+      strValues:
+      - "True"
+  transitions:
+  - source:
+    - BeginState
+    event: Created
+    target: CreatedState
+    noMetric: true
+  - source:
+    - BeginState
+    - CreatedState
+    event: Ready
+    target: SuccessState
+  - source:
+    - BeginState
+    - CreatedState
+    event: timerEvent100s
+    target: FailState
