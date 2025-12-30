@@ -4,6 +4,7 @@ metadata:
     name: apps
     namespace: flux
 spec:
+    prune: true
     path: "./clusters/myhome/apps"
     sourceRef:
         kind: GitRepository
