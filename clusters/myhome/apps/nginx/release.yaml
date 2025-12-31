@@ -19,3 +19,5 @@ spec:
     replicaCount: 1
     global:
       imageRegistry: docker.m.daocloud.io
+      security:
+        allowInsecureImages: true
