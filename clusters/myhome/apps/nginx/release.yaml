@@ -21,3 +21,6 @@ spec:
       imageRegistry: docker.m.daocloud.io
       security:
         allowInsecureImages: true
+    image:
+      repository: "library/nginx"
+      tag: 1.25.3      
