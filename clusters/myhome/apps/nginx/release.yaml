@@ -17,6 +17,9 @@ spec:
       interval: 10m
   values:
     replicaCount: 1
+    containerPorts:
+      http: 80
+      https: 443
     global:
       imageRegistry: docker.m.daocloud.io
       security:
