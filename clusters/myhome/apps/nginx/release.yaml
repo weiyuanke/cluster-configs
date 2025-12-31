@@ -6,10 +6,15 @@ metadata:
   namespace: default
 spec:
   interval: 10m
-  chartRef:
-    kind: OCIRepository
-    name: nginx
-    namespace: default  
+  chart:
+    spec:
+      chart: nginx
+      version: '13.2.23'
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux
+      interval: 10m
   values:
     replicaCount: 1
     global:
