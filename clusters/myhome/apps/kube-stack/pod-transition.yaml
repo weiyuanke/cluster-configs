@@ -1,7 +1,7 @@
 apiVersion: slo.kube-stack.me/v1beta1
 kind: ResourceStateTransition
 metadata:
-  name: pod-transition
+  name: resourcestatetransition-pod
 spec:
   selector:
     apiVersion: v1
