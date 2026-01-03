@@ -1,7 +1,7 @@
 apiVersion: slo.kube-stack.me/v1beta1
 kind: ResourceStateTransition
 metadata:
-  name: pod-create-slo
+  name: slo-pod-create
 spec:
   selector:
     apiVersion: v1
