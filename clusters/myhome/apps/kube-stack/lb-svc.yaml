@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ks-kube-stack-lb
+  namespace: kube-system
+spec:
+  ports:
+  - name: http-prometheus
+    port: 9090
+    protocol: TCP
+    targetPort: 9090
+  - name: http-grafana
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: ks
+    app.kubernetes.io/name: kube-stack
+    control-plane: controller-manager
+  type: LoadBalancer
