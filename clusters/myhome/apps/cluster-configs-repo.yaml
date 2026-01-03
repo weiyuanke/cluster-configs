@@ -4,7 +4,7 @@ metadata:
   name: cluster-configs-repo
   namespace: flux
 spec:
-  interval: 1m
+  interval: 2m
   ref:
     branch: main
   timeout: 60s
