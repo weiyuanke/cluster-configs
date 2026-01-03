@@ -11,5 +11,4 @@ spec:
         kind: GitRepository
         namespace: flux
         name: cluster-configs-repo
-    validation: client
     interval: 5m
