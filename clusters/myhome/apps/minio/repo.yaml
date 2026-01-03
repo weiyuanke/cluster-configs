@@ -23,4 +23,6 @@ spec:
         name: minio-repo
         namespace: flux
       interval: 10m
-  values: {}
+  values:
+    operator:
+      replicaCount: 1
