@@ -7,22 +7,20 @@ metadata:
 spec:
   interval: 10m
   url: https://charts.rook.io/release
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2
-# kind: HelmRelease
-# metadata:
-#   name: minio-op
-#   namespace: minio-operator
-# spec:
-#   interval: 10m
-#   chart:
-#     spec:
-#       chart: operator
-#       sourceRef:
-#         kind: HelmRepository
-#         name: minio-repo
-#         namespace: flux
-#       interval: 10m
-#   values:
-#     operator:
-#       replicaCount: 1
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: rook-op
+  namespace: rook-ceph
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: rook-ceph
+      sourceRef:
+        kind: HelmRepository
+        name: rook-repo
+        namespace: flux
+      interval: 10m
+  values: {}
