@@ -28,6 +28,19 @@ spec:
     image:
       repository: docker.m.daocloud.io/rook/ceph
     csi:
+      csiCephFSPluginResource: |
+        - name : driver-registrar
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-cephfsplugin
+          resource:
+            limits:
+              memory: 1Gi
+        - name : liveness-prometheus
+          resource:
+            limits:
+              memory: 256Mi    
       csiCephFSProvisionerResource: |
         - name : csi-provisioner
           resource:
