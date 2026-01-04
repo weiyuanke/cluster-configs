@@ -27,3 +27,33 @@ spec:
   values:
     image:
       repository: docker.m.daocloud.io/rook/ceph
+    csi:
+      csiRBDProvisionerResource: |
+        - name : csi-provisioner
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-resizer
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-attacher
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-snapshotter
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-rbdplugin
+          resource:
+            limits:
+              memory: 1Gi
+        - name : csi-omap-generator
+          resource:
+            limits:
+              memory: 1Gi
+        - name : liveness-prometheus
+          resource:
+            limits:
+              memory: 256Mi      
