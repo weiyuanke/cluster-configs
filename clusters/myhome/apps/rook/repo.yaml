@@ -23,4 +23,6 @@ spec:
         name: rook-repo
         namespace: flux
       interval: 10m
-  values: {}
+  values:
+    image:
+      repository: docker.m.daocloud.io/rook/ceph
