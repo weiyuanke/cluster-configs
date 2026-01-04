@@ -31,10 +31,14 @@ spec:
       csiCephFSPluginResource: |
         - name : driver-registrar
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-cephfsplugin
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 1Gi
         - name : liveness-prometheus
@@ -44,60 +48,88 @@ spec:
       csiCephFSProvisionerResource: |
         - name : csi-provisioner
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-resizer
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-attacher
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-snapshotter
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-cephfsplugin
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 1Gi
         - name : liveness-prometheus
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi    
       csiRBDPluginResource: |
         - name : driver-registrar
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-rbdplugin
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 1Gi
         - name : liveness-prometheus
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi    
       csiRBDProvisionerResource: |
         - name : csi-provisioner
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-resizer
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-attacher
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-snapshotter
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 256Mi
         - name : csi-rbdplugin
           resource:
+            requests:
+              memory: 10Mi
             limits:
               memory: 1Gi
         - name : csi-omap-generator
@@ -106,5 +138,7 @@ spec:
               memory: 1Gi
         - name : liveness-prometheus
           resource:
+            requests:
+              memory: 10Mi      
             limits:
               memory: 256Mi      
