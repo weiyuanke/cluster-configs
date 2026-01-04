@@ -18,6 +18,25 @@ spec:
     operatorNamespace: rook-ceph
     clusterName: rook-ceph
     cephClusterSpec:
+      resources:
+        mgr:
+          limits:
+            memory: "1Gi"
+          requests:
+            cpu: "50m"
+            memory: "50Mi"
+        mon:
+          limits:
+            memory: "2Gi"
+          requests:
+            cpu: "10m"
+            memory: "50Mi"
+        osd:
+          limits:
+            memory: "4Gi"
+          requests:
+            cpu: "10m"
+            memory: "50Mi"      
       storage:
         useAllNodes: false
         nodes:
