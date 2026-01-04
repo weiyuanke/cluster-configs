@@ -1,1 +1,33 @@
 ---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ceph-cluster
+  namespace: rook-ceph
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: rook-ceph-cluster
+      sourceRef:
+        kind: HelmRepository
+        name: rook-repo
+        namespace: flux
+      interval: 10m
+  values:
+    operatorNamespace: rook-ceph
+    clusterName: rook-ceph
+    cephClusterSpec:
+      storage:
+        useAllNodes: false
+        nodes:
+        - name: old-acer
+          devices:
+          - name: /dev/sda4
+        - name: new-acer
+          devices:
+          - name: /dev/sda4
+        - name: yo1
+          devices:
+          - name: /dev/nvme0n1p7
+          - name: /dev/sda
