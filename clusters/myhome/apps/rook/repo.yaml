@@ -28,6 +28,19 @@ spec:
     image:
       repository: docker.m.daocloud.io/rook/ceph
     csi:
+      csiRBDPluginResource: |
+        - name : driver-registrar
+          resource:
+            limits:
+              memory: 256Mi
+        - name : csi-rbdplugin
+          resource:
+            limits:
+              memory: 1Gi
+        - name : liveness-prometheus
+          resource:
+            limits:
+              memory: 256Mi    
       csiRBDProvisionerResource: |
         - name : csi-provisioner
           resource:
