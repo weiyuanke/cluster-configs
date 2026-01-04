@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - repo.yaml
   - ns.yaml
+  - cluster-config.yaml
