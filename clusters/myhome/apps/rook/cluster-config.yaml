@@ -26,8 +26,6 @@ spec:
         allowMultiplePerNode: true
       mgr:
         count: 1
-      monitoring:
-        enabled: false
       resources:
         mgr:
           limits:
