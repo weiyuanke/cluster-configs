@@ -20,6 +20,13 @@ spec:
     cephClusterSpec:
       crashCollector:
         disable: true
+      mon:
+        count: 1
+        allowMultiplePerNode: true
+      mgr:
+        count: 1
+      monitoring:
+        enabled: false
       resources:
         mgr:
           limits:
