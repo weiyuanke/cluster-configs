@@ -19,7 +19,7 @@ spec:
     clusterName: rook-ceph
     cephClusterSpec:
       crashCollector:
-        disable: false
+        disable: true
       resources:
         mgr:
           limits:
