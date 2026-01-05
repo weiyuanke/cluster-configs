@@ -28,6 +28,7 @@ spec:
     image:
       repository: docker.m.daocloud.io/rook/ceph
     csi:
+      provisionerReplicas: 1
       csiCephFSPluginResource: |
         - name : driver-registrar
           resource:
