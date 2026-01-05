@@ -19,6 +19,8 @@ spec:
     operatorNamespace: rook-ceph
     clusterName: rook-ceph
     cephClusterSpec:
+      network:
+        provider: host    
       crashCollector:
         disable: true
       mon:
