@@ -1,61 +1,61 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: ceph-cluster
-  namespace: rook-ceph
-spec:
-  interval: 10m
-  chart:
-    spec:
-      chart: rook-ceph-cluster
-      version: 'v1.18.8'
-      sourceRef:
-        kind: HelmRepository
-        name: rook-repo
-        namespace: flux
-      interval: 10m
-  values:
-    operatorNamespace: rook-ceph
-    clusterName: rook-ceph
-    cephClusterSpec:
-      crashCollector:
-        disable: true
-      mon:
-        count: 1
-        allowMultiplePerNode: true
-      mgr:
-        count: 1
-      resources:
-        mgr:
-          limits:
-            memory: "1Gi"
-          requests:
-            cpu: "50m"
-            memory: "50Mi"
-        mon:
-          limits:
-            memory: "2Gi"
-          requests:
-            cpu: "10m"
-            memory: "50Mi"
-        osd:
-          limits:
-            memory: "4Gi"
-          requests:
-            cpu: "10m"
-            memory: "50Mi"      
-      storage:
-        useAllNodes: false
-        useAllDevices: false
-        nodes:
-        - name: old-acer
-          devices:
-          - name: /dev/sda4
-        - name: new-acer
-          devices:
-          - name: /dev/sda4
-        - name: yo1
-          devices:
-          - name: /dev/nvme0n1p7
-          - name: /dev/sda
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2
+# kind: HelmRelease
+# metadata:
+#   name: ceph-cluster
+#   namespace: rook-ceph
+# spec:
+#   interval: 10m
+#   chart:
+#     spec:
+#       chart: rook-ceph-cluster
+#       version: 'v1.18.8'
+#       sourceRef:
+#         kind: HelmRepository
+#         name: rook-repo
+#         namespace: flux
+#       interval: 10m
+#   values:
+#     operatorNamespace: rook-ceph
+#     clusterName: rook-ceph
+#     cephClusterSpec:
+#       crashCollector:
+#         disable: true
+#       mon:
+#         count: 1
+#         allowMultiplePerNode: true
+#       mgr:
+#         count: 1
+#       resources:
+#         mgr:
+#           limits:
+#             memory: "1Gi"
+#           requests:
+#             cpu: "50m"
+#             memory: "50Mi"
+#         mon:
+#           limits:
+#             memory: "2Gi"
+#           requests:
+#             cpu: "10m"
+#             memory: "50Mi"
+#         osd:
+#           limits:
+#             memory: "4Gi"
+#           requests:
+#             cpu: "10m"
+#             memory: "50Mi"      
+#       storage:
+#         useAllNodes: false
+#         useAllDevices: false
+#         nodes:
+#         - name: old-acer
+#           devices:
+#           - name: /dev/sda4
+#         - name: new-acer
+#           devices:
+#           - name: /dev/sda4
+#         - name: yo1
+#           devices:
+#           - name: /dev/nvme0n1p7
+#           - name: /dev/sda
