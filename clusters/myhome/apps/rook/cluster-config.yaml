@@ -48,6 +48,7 @@ spec:
             memory: "50Mi"      
       storage:
         useAllNodes: false
+        useAllDevices: false
         nodes:
         - name: old-acer
           devices:
