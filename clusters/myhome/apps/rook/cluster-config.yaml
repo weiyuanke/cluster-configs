@@ -18,6 +18,8 @@ spec:
     operatorNamespace: rook-ceph
     clusterName: rook-ceph
     cephClusterSpec:
+      crashCollector:
+        disable: false
       resources:
         mgr:
           limits:
