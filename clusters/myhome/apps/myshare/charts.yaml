@@ -3,3 +3,64 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: myshare
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: samba
+  namespace: myshare
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: samba
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux
+      interval: 10m
+  values:
+    persistence:
+      shared-data:
+        enabled: true
+        type: pvc
+        existingClaim: mydata-pvc
+    configmap:
+      config:
+        enabled: true
+        data:
+          config.yml: |
+            auth:
+              - user: foo
+                group: foo
+                uid: 1000
+                gid: 1000
+                password: bar
+              - user: baz
+                group: xxx
+                uid: 1100
+                gid: 1200
+                password: foobar
+    
+            global:
+              - "force user = foo"
+              - "force group = foo"
+    
+            share:
+              - name: myhomesamba
+                path: /shared-data
+                browsable: yes
+                readonly: no
+                guestok: yes
+                writelist: foo
+                veto: no
+    env:
+      TZ: UTC
+      # SAMBA_WORKGROUP: NT-Domain-Name or Workgroup-Name. (default WORKGROUP)
+      # SAMBA_SERVER_STRING: Server string is the equivalent of the NT Description field. (default Docker Samba Server)
+      SAMBA_LOG_LEVEL: 3 auth:5 smbd:5
+      # SAMBA_FOLLOW_SYMLINKS: Allow to follow symlinks. (default yes)
+      # SAMBA_WIDE_LINKS: Controls whether or not links in the UNIX file system may be followed by the server. (default yes)
+      # SAMBA_HOSTS_ALLOW: Set of hosts which are permitted to access a service. (default 127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16)
+      # SAMBA_INTERFACES: Allows you to override the default network interfaces list.
+      WSDD2_NETBIOS_NAME: myyunban  
