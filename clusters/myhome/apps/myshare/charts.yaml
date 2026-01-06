@@ -1,15 +1,4 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: samba-git
-  namespace: flux
-spec:
-  url: https://github.com/iMartyn/helm-samba4.git
-  ref:
-    branch: master
-  interval: 5m
----
 apiVersion: v1
 kind: Namespace
 metadata:
