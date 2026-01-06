@@ -51,7 +51,7 @@ spec:
                 path: /shared-data
                 browsable: yes
                 readonly: no
-                guestok: yes
+                guestok: no
                 writelist: foo
                 veto: no
     env:
