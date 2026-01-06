@@ -4,6 +4,26 @@ kind: Namespace
 metadata:
   name: myshare
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: samba-lb
+  namespace: myshare
+spec:
+  ports:
+  - name: netbios
+    port: 139
+    protocol: TCP
+    targetPort: netbios
+  - name: tcp
+    port: 445
+    protocol: TCP
+    targetPort: tcp
+  selector:
+    app.kubernetes.io/instance: samba
+    app.kubernetes.io/name: samba
+  type: LoadBalancer
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
