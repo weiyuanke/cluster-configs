@@ -4,3 +4,4 @@ resources:
   - repo.yaml
   - ns.yaml
   - cluster-config.yaml
+  - toolbox.yaml
