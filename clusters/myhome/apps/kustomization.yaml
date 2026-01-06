@@ -10,4 +10,4 @@ resources:
   - rook
   - cert-manager
   - rocm-operator
-  - samba
+  - myshare

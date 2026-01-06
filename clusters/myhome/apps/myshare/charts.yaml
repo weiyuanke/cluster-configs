@@ -13,4 +13,4 @@ spec:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: samba
+  name: myshare
