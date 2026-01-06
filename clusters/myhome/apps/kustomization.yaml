@@ -9,3 +9,4 @@ resources:
   - nginx
   - rook
   - cert-manager
+  - rocm-operator
