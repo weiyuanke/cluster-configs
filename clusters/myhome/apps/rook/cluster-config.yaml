@@ -66,7 +66,7 @@ spec:
         spec:
           metadataPool:
             replicated:
-              size: 3
+              size: 2
           dataPools:
             - failureDomain: osd
               replicated:
@@ -76,8 +76,6 @@ spec:
             activeCount: 1
             activeStandby: true
             resources:
-              limits:
-                memory: "4Gi"
               requests:
                 cpu: "1000m"
             priorityClassName: system-cluster-critical
