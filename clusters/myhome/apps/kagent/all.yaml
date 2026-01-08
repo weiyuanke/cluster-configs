@@ -10,12 +10,9 @@ metadata:
   name: k-crd
   namespace: kagent
 spec:
-  chart:
-    spec:
-      chart: ./helm/kagent-crds
-      sourceRef:
-        kind: GitRepository
-        name: kagent
-        namespace: flux
+  chartRef:
+    kind: OCIRepository
+    name: kagent
+    namespace: flux
   interval: 10m
   values: {}
