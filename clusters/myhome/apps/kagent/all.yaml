@@ -12,7 +12,7 @@ metadata:
 spec:
   chartRef:
     kind: OCIRepository
-    name: kagent
+    name: kagent-crds
     namespace: flux
   interval: 10m
   values: {}
