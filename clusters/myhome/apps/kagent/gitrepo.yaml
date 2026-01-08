@@ -12,3 +12,17 @@ spec:
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy  
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kagent
+  namespace: flux
+spec:
+  url: oci://ghcr.io/kagent-dev/kagent/helm/kagent
+  ref:
+    semver: "0.7.7"
+  interval: 5m
+  layerSelector:
+    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+    operation: copy  
