@@ -11,3 +11,4 @@ resources:
   - cert-manager
   - rocm-operator
   - myshare
+  - kagent
