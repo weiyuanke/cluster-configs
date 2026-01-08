@@ -4,7 +4,7 @@ metadata:
   name: kagent
   namespace: flux
 spec:
-  url: ghcr.io/kagent-dev/kagent/helm/kagent-crds
+  url: oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds
   ref:
     semver: "0.7.7"
   interval: 5m
