@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: kagent
+  namespace: flux
+spec:
+  url: https://github.com/kagent-dev/kagent.git
+  ref:
+    branch: main
+  interval: 5m
