@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 - gitrepo.yaml
 - all.yaml
+labels:
+  app.kubernetes.io/version: "0.7.8"
