@@ -23,9 +23,6 @@ metadata:
   name: kagent
   namespace: kagent
 spec:
-  commonMetadata:
-    labels:
-      app.kubernetes.io/version: "0.7.8"
   interval: 10m
   chart:
     spec:
