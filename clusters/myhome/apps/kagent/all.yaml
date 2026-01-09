@@ -23,6 +23,9 @@ metadata:
   name: k
   namespace: kagent
 spec:
+  commonMetadata:
+    labels:
+      app.kubernetes.io/version: "0.7.8"
   chartRef:
     kind: OCIRepository
     name: kagent
