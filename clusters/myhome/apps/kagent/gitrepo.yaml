@@ -20,5 +20,5 @@ metadata:
   namespace: flux
 spec:
   type: "oci"
-  url: oci://ghcr.io/kagent-dev/kagent/helm/kagent
+  url: oci://ghcr.io/kagent-dev/kagent/helm
   interval: 5m
