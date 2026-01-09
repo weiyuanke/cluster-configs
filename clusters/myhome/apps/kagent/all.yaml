@@ -29,7 +29,7 @@ spec:
   interval: 10m
   chart:
     spec:
-      chart: .
+      chart: kagent
       version: '0.7.8'
       sourceRef:
         kind: HelmRepository
