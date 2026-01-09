@@ -14,15 +14,11 @@ spec:
     operation: copy  
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
+kind: HelmRepository
 metadata:
   name: kagent
   namespace: flux
 spec:
+  type: "oci"
   url: oci://ghcr.io/kagent-dev/kagent/helm/kagent
-  ref:
-    tag: "0.7.8"
   interval: 5m
-  layerSelector:
-    mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
-    operation: copy  
