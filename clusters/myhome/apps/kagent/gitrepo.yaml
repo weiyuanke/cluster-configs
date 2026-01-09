@@ -7,7 +7,7 @@ metadata:
 spec:
   url: oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds
   ref:
-    tag: "0.7.7"
+    tag: "0.7.6"
   interval: 5m
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
@@ -21,7 +21,7 @@ metadata:
 spec:
   url: oci://ghcr.io/kagent-dev/kagent/helm/kagent
   ref:
-    tag: "0.7.7"
+    tag: "0.7.6"
   interval: 5m
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
