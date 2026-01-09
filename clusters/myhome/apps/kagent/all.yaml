@@ -28,6 +28,4 @@ spec:
     name: kagent
     namespace: flux
   interval: 10m
-  values:
-    labels:
-      app.kubernetes.io/version: "0.7.8"
+  values: {}
