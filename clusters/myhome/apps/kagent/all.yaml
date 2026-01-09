@@ -36,4 +36,7 @@ spec:
         name: kagent
         namespace: flux
       interval: 10m
-  values: {}
+  values:
+    grafana-mcp:
+      image:
+        registry: docker.m.daocloud.io/mcp
