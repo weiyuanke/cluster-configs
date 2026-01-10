@@ -51,13 +51,16 @@ spec:
         useAllNodes: false
         useAllDevices: false
         nodes:
+        - name: dell
+          devices:
+          - name: /dev/sdb  
         - name: old-acer
           devices:
           - name: /dev/sda4
         - name: new-acer
           devices:
           - name: /dev/sda4
-          - name: /dev/sdc
+          - name: /dev/sdc          
         - name: yo1
           devices:
           - name: /dev/nvme0n1p7
