@@ -16,6 +16,18 @@ spec:
         namespace: flux
       interval: 10m
   values:
+    serverBlock: |-
+      server {
+        listen 0.0.0.0:80;
+    
+        access_log  /var/log/nginx/host.access.log  main;
+    
+        location / {
+            root   /usr/share/nginx/html;
+            index  index.html index.htm;
+            autoindex on;
+        }
+      }  
     extraVolumes:
     - name: shared-data
       persistentVolumeClaim:
