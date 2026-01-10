@@ -5,7 +5,6 @@ resources:
   - helm-repo.yaml
   - kube-stack
   - metallb
-  - minio
   - nginx
   - rook
   - cert-manager
