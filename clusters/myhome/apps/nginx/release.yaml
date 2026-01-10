@@ -16,6 +16,13 @@ spec:
         namespace: flux
       interval: 10m
   values:
+    extraVolumes:
+    - name: shared-data
+      persistentVolumeClaim:
+        claimName: mydata-pvc
+    extraVolumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: shared-data
     replicaCount: 1
     containerPorts:
       http: 80
