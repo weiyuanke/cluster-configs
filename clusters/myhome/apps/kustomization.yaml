@@ -11,3 +11,4 @@ resources:
   - rocm-operator
   - myshare
   - kagent
+  - prometheus-community
