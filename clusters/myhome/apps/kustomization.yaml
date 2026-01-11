@@ -9,6 +9,6 @@ resources:
   - rook
   - cert-manager
   - rocm-operator
-  - myshare
+  - samba
   - kagent
   - prometheus-community
