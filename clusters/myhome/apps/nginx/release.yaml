@@ -16,6 +16,9 @@ spec:
         namespace: flux
       interval: 10m
   values:
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 0
     serverBlock: |-
       server {
         listen 0.0.0.0:80;
