@@ -56,16 +56,9 @@ spec:
                 uid: 1000
                 gid: 1000
                 password: bar
-              - user: baz
-                group: xxx
-                uid: 1100
-                gid: 1200
-                password: foobar
-    
             global:
               - "force user = foo"
               - "force group = foo"
-    
             share:
               - name: myhomesamba
                 path: /shared-data
