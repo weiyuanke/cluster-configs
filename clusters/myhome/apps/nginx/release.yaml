@@ -16,9 +16,13 @@ spec:
         namespace: flux
       interval: 10m
   values:
+    podSecurityContext:
+      enabled: true
+      fsGroup: 101
+      fsGroupChangePolicy: Always  
     containerSecurityContext:
       enabled: true
-      runAsUser: 0
+      runAsUser: 101
     serverBlock: |-
       server {
         listen 0.0.0.0:80;
