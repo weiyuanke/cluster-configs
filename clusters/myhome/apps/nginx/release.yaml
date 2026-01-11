@@ -18,11 +18,11 @@ spec:
   values:
     podSecurityContext:
       enabled: true
-      fsGroup: 101
+      fsGroup: 1000
       fsGroupChangePolicy: Always  
     containerSecurityContext:
       enabled: true
-      runAsUser: 101
+      runAsUser: 1000
     serverBlock: |-
       server {
         listen 0.0.0.0:80;
