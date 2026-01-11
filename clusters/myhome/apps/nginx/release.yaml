@@ -25,7 +25,7 @@ spec:
       persistentVolumeClaim:
         claimName: mydata-pvc
     extraVolumeMounts:
-    - mountPath: /usr/share/nginx/html
+    - mountPath: /usr/share/nginx/html/myhomesamba
       name: shared-data
     replicaCount: 1
     containerPorts:
