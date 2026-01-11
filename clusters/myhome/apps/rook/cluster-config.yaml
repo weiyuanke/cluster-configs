@@ -72,7 +72,7 @@ spec:
             replicated:
               size: 2
           dataPools:
-            - failureDomain: osd
+            - failureDomain: host
               replicated:
                 size: 2
               name: data0
