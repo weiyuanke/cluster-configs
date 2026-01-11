@@ -53,8 +53,8 @@ spec:
             auth:
               - user: foo
                 group: foo
-                uid: 1000
-                gid: 1000
+                uid: 101
+                gid: 101
                 password: bar
             global:
               - "force user = foo"
